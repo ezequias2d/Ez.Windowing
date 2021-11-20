@@ -1,0 +1,32 @@
+<!--suppress CheckTagEmptyBody -->
+<Project>
+  <PropertyGroup>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/ezequias2d/Ez.Windowing</PackageProjectUrl>
+    <Copyright>ezequias2d and Ez.Windowing contributors.</Copyright>
+    <Version>0.3.0-alpha</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>..\build\nupkgs</PackageOutputPath>
+    <PackageIcon>ez-gear2x.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Ez Ez.Windowing Windowing Glfw</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryUrl>https://github.com/ezequias2d/Ez.Windowing</RepositoryUrl>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+	<IncludeSymbols>true</IncludeSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\build\ez-gear2x.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+</Project>
