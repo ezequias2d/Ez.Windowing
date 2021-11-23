@@ -15,6 +15,7 @@ using System.Linq;
 using Ez.Graphics.Context;
 using Ez.Graphics.Context.SwapchainSources;
 using Ez.Memory;
+using System.Threading.Tasks;
 
 namespace Ez.Windowing.GLFW
 {
@@ -808,12 +809,12 @@ namespace Ez.Windowing.GLFW
         }
 
         /// <inheritdoc/>
-        public IAsyncResultDisposable BeginProcessEvents()
+        public Task BeginProcessEvents()
         {
             if (!PreProcessEvents())
-                return null;
+                return Task.CompletedTask;
 
-            return _glfwThread.BeginInvoke(() =>
+            return Task.Factory.FromAsync(_glfwThread.BeginInvoke(() =>
             {
                 ProcessInputEvents();
 
@@ -821,13 +822,13 @@ namespace Ez.Windowing.GLFW
                     Glfw.WaitEventsTimeout(1);
                 else
                     Glfw.PollEvents();
+            }), 
+            (result) => 
+            {
+                var rd = (IAsyncResultDisposable)result;
+                _glfwThread.EndInvoke(rd);
+                rd.Dispose();
             });
-        }
-
-        /// <inheritdoc/>
-        public void EndProcessEvents(IAsyncResultDisposable result)
-        {
-            _glfwThread.EndInvoke(result);
         }
 
         /// <inheritdoc/>

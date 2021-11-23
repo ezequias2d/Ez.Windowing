@@ -25,10 +25,10 @@ namespace GlfwExample
 
             while (window.Exists)
             {
-                using var result = window.BeginProcessEvents();
+                var result = window.BeginProcessEvents();
                 Thread.Sleep(1);
 
-                window.EndProcessEvents(result);
+                result.Wait();
             }
 
             window.WaitClose();
