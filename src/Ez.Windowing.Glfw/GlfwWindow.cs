@@ -972,11 +972,9 @@ namespace Ez.Windowing.GLFW
                 DefaultCursor.Dispose();
 
                 foreach(var joystickState in _joystickStates)
-                    joystickState.Dispose();
+                    joystickState?.Dispose();
+
                 _keyboardState.Dispose();
-                _glfwThread.Dispose();
-                _closeEvent.Close();
-                _closeEvent.Dispose();
                 _mouseState.Dispose();
                 _joystickStatesSync.Dispose();
                 _title.Dispose();
@@ -990,7 +988,6 @@ namespace Ez.Windowing.GLFW
                 _opacity.Dispose();
                 _isFocused.Dispose();
                 _isExiting.Dispose();
-                _exist.Dispose();
                 _framebufferSize.Dispose();
                 _cursor.Dispose();
             }
