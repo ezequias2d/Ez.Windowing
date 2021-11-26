@@ -34,6 +34,11 @@ namespace Ez.Windowing
         public IMouseState MouseState { get; }
 
         /// <summary>
+        /// Gets an <see cref="IKeyboardState"/> that describes the keyboard state in the <see cref="IWindow"/>.
+        /// </summary>
+        public IKeyboardState KeyboardState { get; }
+
+        /// <summary>
         /// Gets or sets the width of the <see cref="IWindow"/>.
         /// </summary>
         public int Width { get; set; }

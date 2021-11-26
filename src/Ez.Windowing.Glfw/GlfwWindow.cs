@@ -674,6 +674,9 @@ namespace Ez.Windowing.GLFW
             }
         }
 
+        /// <inheritdoc/>
+        public IKeyboardState KeyboardState => _keyboardState;
+
         #endregion
 
         #region events

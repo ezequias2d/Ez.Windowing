@@ -5,7 +5,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/ezequias2d/Ez.Windowing</PackageProjectUrl>
     <Copyright>ezequias2d and Ez.Windowing contributors.</Copyright>
-    <Version>0.4.0-alpha</Version>
+    <Version>0.5.0-alpha</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageOutputPath>..\build\nupkgs</PackageOutputPath>
     <PackageIcon>ez-gear2x.png</PackageIcon>
