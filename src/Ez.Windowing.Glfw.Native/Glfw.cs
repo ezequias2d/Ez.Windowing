@@ -516,8 +516,12 @@ namespace Ez.Windowing.GLFW.Native
         public static extern void WaitEventsTimeout(double timeout);
 
         [DllImport(LibraryName, EntryPoint = "glfwGetClipboardString")]
-        [return: MarshalAs(UnmanagedType.LPUTF8Str)]
-        public static extern string GetClipboardString(Window window);
+        public static extern IntPtr GetClipboardStringUnsafe(Window window);
+
+        public static string GetClipboardString(Window window)
+        {
+            return MemUtil.GetUtf8String(GetClipboardStringUnsafe(window));
+        }
 
         [DllImport(LibraryName, EntryPoint = "glfwSetClipboardString")]
         public static extern void SetClipboardString(Window window,
