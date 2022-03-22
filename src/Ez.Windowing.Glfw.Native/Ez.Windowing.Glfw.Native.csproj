@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+	<Description>Provides bindings for GLFW in the NET platform.</Description>
   </PropertyGroup>
 
   <Import Project="..\build\common.props.csproj" />

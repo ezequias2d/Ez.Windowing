@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+	<Description>
+		Implementation of Ez.Windowing with GLFW library as backend.
+		
+		A exclusive thread is used for manage the GLFW using Ez.Threading.ThreadMethodExecutor.
+	</Description>
   </PropertyGroup>
 
   <ItemGroup>

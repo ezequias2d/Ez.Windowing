@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Description>A generic interface for windowing</Description>
+    <Description>A generic interface for window, window events and inputs like Joystick, Mouse and Keyboard.</Description>
   </PropertyGroup>
 
   <ItemGroup>
