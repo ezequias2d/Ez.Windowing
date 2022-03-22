@@ -164,8 +164,12 @@ namespace Ez.Windowing.GLFW.Native
         public static extern int RawMouseMotionSupported();
 
         [DllImport(LibraryName, EntryPoint = "glfwGetKeyName")]
-        [return: MarshalAs(UnmanagedType.LPUTF8Str)]
-        private static extern string GetKeyNameUnsafe(Keys key, int scancode);
+        private static extern IntPtr GetKeyNameUnsafe(Keys key, int scancode);
+
+        public static string GetKeyName(Keys key, int scancode)
+        {
+            return MemUtil.GetUtf8String(GetKeyNameUnsafe(key, scancode));
+        }
 
         [DllImport(LibraryName, EntryPoint = "glfwGetKeyScancode")]
         public static extern int GetKeyScancode(Keys key);
@@ -225,12 +229,20 @@ namespace Ez.Windowing.GLFW.Native
         }
 
         [DllImport(LibraryName, EntryPoint = "glfwGetJoystickName")]
-        [return: MarshalAs(UnmanagedType.LPUTF8Str)]
-        public static extern string GetJoystickName(int jid);
+        private static extern IntPtr GetJoystickNameUnsafe(int jid);
+
+        public static string GetJoystickName(int jid)
+        {
+            return MemUtil.GetUtf8String(GetJoystickNameUnsafe(jid));
+        }
 
         [DllImport(LibraryName, EntryPoint = "glfwGetJoystickGUID")]
-        [return: MarshalAs(UnmanagedType.LPUTF8Str)]
-        public static extern string GetJoystickGUID(int jid);
+        private static extern IntPtr GetJoystickGUIDUnsafe(int jid);
+        
+        public static string GetJoystickGUID(int jid)
+        {
+            return MemUtil.GetUtf8String(GetJoystickGUIDUnsafe(jid));
+        }
 
         [DllImport(LibraryName, EntryPoint = "glfwSetJoystickUserPointer")]
         public static extern void SetJoystickUserPointer(int jid, IntPtr ptr);
@@ -245,8 +257,12 @@ namespace Ez.Windowing.GLFW.Native
         public static extern bool UpdateGamepadMappings(string newMapping);
 
         [DllImport(LibraryName, EntryPoint = "glfwGetGamepadName")]
-        [return: MarshalAs(UnmanagedType.LPUTF8Str)]
-        public static extern string GetGamepadName(int jid);
+        private static extern IntPtr GetGamepadNameUnsafe(int jid);
+
+        public static string GetGamepadName(int jid)
+        {
+            return MemUtil.GetUtf8String(GetGamepadNameUnsafe(jid));
+        }
 
         [DllImport(LibraryName, EntryPoint = "glfwGetGamepadState")]
         public static extern bool GetGamepadState(int jid, out GamepadState state);
